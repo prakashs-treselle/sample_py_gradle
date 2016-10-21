@@ -45,11 +45,15 @@ task copyFiles{
 			}
 			into 'restflaskdict_bin_gradle'
 		}
+		}
 task runPython(type:Exec) {
 		workingDir '.'
 
 		commandLine 'python', 'app1.py'
 		 
 } 
-		
+//task execution depends on copyFiles task
+task run(dependsOn: copyFiles) << {
+   println 'Copying files from source from destination'
 }
+ 
