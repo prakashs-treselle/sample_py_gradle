@@ -1,0 +1,55 @@
+//this task copies the files from source to destination
+//copies only the *.pyc compile python files
+task copyFiles{
+		copy{
+			from ('Calculation'){
+				include '*.pyc'
+			}
+			into 'restflaskdict_bin_gradle/Calculation'
+		}
+		
+		copy{
+			from ('config'){
+				include '*.pyc'
+			}
+			into 'restflaskdict_bin_gradle/config'
+		}
+		copy{
+			from ('DBUtilities'){
+				include '*.pyc'
+			}
+			into 'restflaskdict_bin_gradle/DBUtilities'
+		}
+		copy{
+			from ('Validation'){
+				include '*.pyc'
+			}
+			into 'restflaskdict_bin_gradle/Validation'
+		}
+		copy{
+			from ('ExpectingResult'){
+				include '*.pyc'
+			}
+			into 'restflaskdict_bin_gradle/ExpectingResult'
+		}
+		copy{
+			from ('DBConnection'){
+				include '*.pyc'
+			}
+			into 'restflaskdict_bin_gradle/DBConnection'
+		}
+		
+		copy{
+			from ('.'){
+				include '*.py'
+			}
+			into 'restflaskdict_bin_gradle'
+		}
+task runPython(type:Exec) {
+		workingDir '.'
+
+		commandLine 'python', 'app1.py'
+		 
+} 
+		
+}
